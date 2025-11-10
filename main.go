@@ -1,17 +1,19 @@
-package main
+package greeting_plugin
 
-// HiPlugin implements Greeter
-type NewPluginServiceImp struct{}
-
+// Exported interface
 type NewPluginService interface {
 	Greet(name string) string
 }
 
-// New returns the Greeter interface
-func New() NewPluginService {
-	return &NewPluginServiceImp{}
+// Exported struct implementing the interface
+type NewPluginServiceImp struct{}
+
+// Implementation of Greet
+func (p *NewPluginServiceImp) Greet(name string) string {
+	return "Hello, " + name + " from plugin!"
 }
 
-func (h *NewPluginServiceImp) Greet(name string) string {
-	return "Hi, " + name + " from NewPluginService!"
+// Exported factory function returning the interface
+func New() NewPluginService {
+	return &NewPluginServiceImp{}
 }
