@@ -1,9 +1,8 @@
 package main
 
+import pluginiface "github.com/Nine9full/golang-so-repo/plugin-interface"
+
 // Exported interface
-type NewPluginService interface {
-	Greet(name string) string
-}
 
 // Exported struct implementing the interface
 type NewPluginServiceImp struct{}
@@ -14,6 +13,6 @@ func (p *NewPluginServiceImp) Greet(name string) string {
 }
 
 // Exported factory function returning the interface
-func New() NewPluginService {
+func New() pluginiface.NewPluginService {
 	return &NewPluginServiceImp{}
 }
