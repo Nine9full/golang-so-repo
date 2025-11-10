@@ -1,4 +1,4 @@
-package greeting_plugin
+package main
 
 // Exported interface
 type NewPluginService interface {
